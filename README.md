@@ -10,3 +10,4 @@ At the end of the two-weeks primer course on SQL, Tableau and Python, everybody 
 
 In this [case study](01_eniac_magist_case_study), the company Eniac wants to expand its business to Brazil and evaluates the potential after-sales fullfillment partner Magist for its suitability. 
 
+[![scatter plot of all sellers with the x-axis saying what fraction of products was sold in tech categories and the y-axis depicting the average monthly sales](01_eniac_magist_case_study/images/Sellers_%20Monthly%20Sales%20and%20Tech%20Affinity.png)](01_eniac_magist_case_study)

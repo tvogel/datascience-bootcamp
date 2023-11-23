@@ -26,7 +26,7 @@ The first part was to explore the [data structure](src/explore_tables.sql) using
 
 For visualization, we were using [Tableau Public](https://public.tableau.com). Data was [exported](data) from SQL as both full-table data and query results in CSV format.
 
-In the group, I focussed on two main topics:
+In the group, I focussed on these main topics:
 
 ### Structure of sellers using Magist
 
