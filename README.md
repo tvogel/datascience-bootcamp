@@ -1,0 +1,12 @@
+# WBS Data Science Bootcamp Portfolio
+
+## Primer: No-Hangman
+
+At the end of the two-weeks primer course on SQL, Tableau and Python, everybody builds a simple text-based Hangman (click on the image for my take on it):
+
+[![No-Hangman Screenshot](00_primer_no_hangman/images/screenshot.png)](00_primer_no_hangman)
+
+## Project 1: Eniac expansion from Spain to Brazil
+
+In this [case study](01_eniac_magist_case_study), the company Eniac wants to expand its business to Brazil and evaluates the potential after-sales fullfillment partner Magist for its suitability. 
+
