@@ -1,5 +1,9 @@
 # WBS Data Science Bootcamp Portfolio
 
+## Primer: A conversation with ChatGPT 3.5 about SQL challenges
+
+It's interesting to see how well ChatGPT works and where its (current) limitations are, so I chatted with it about some of our SQL challenges. I found it a [fun read](00_primer_chatgpt_on_sql/ChatGPT_SQLChallenges5.md)!
+
 ## Primer: No-Hangman
 
 At the end of the two-weeks primer course on SQL, Tableau and Python, everybody builds a simple text-based Hangman (click on the image for my take on it):
