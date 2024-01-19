@@ -11,6 +11,7 @@ Before going into story-telling, this post touches on the following topics - ple
 - [Gift ribbon for Google cloud-functions](#gift-ribbon-for-google-cloudfunctions)
 - [Hiding input in automatic reports from Jupyter notebooks](#hiding-input-in-automatic-reports-from-jupyter-notebooks)
 - [Results](#results)
+- [I did not do it](#i-did-not-do-it)
 
 -----
 
@@ -293,6 +294,11 @@ And of course, finally, all the nice code and development notebooks:
   template
 - [gans_cities_display.ipynb](https://github.com/tvogel/datascience-bootcamp/blob/main/05_cloud_pipelines/docs/gans_cities_display.ipynb):<br/>
   Jupyter notebook used as the template for automatic reports
+
+## I did not do it
+
+It would be cool to combine the flight data with the weather data. My idea would be to define [sigmoidal](https://en.wikipedia.org/wiki/Sigmoid_function) functions that define the relative likelihood that people use E-scooters under different weather parameters, e.g. below a certain temperature, when it rains, snows or if the wind blows to strongly. With those, I could attenuate the usage predictions that I derived from the flight data or just use them individually to predict the flight-independent scooter activity. The missing piece here would be the "perfect weather curve" for usage over the day.
+
 
 -----
 
