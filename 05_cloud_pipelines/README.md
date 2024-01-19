@@ -6,7 +6,7 @@ Before going into story-telling, this post touches on the following topics - ple
 - [Corner-cases on Wikipedia](#cornercases-on-wikipedia)
 - [Missing elevation data on Wikidata](#missing-elevation-data-on-wikidata)
 - [Extensible storage of facts](#extensible-storage-of-facts)
-- [Dual-axis weather plots](#dualaxis-weather-plots)
+- [Dual-axis weather plots](#dual-axis-weather-plots)
 - [Running circles around airports](#running-circles-around-airports)
 - [Gift ribbon for Google cloud-functions](#gift-ribbon-for-google-cloudfunctions)
 - [Hiding input in automatic reports from Jupyter notebooks](#hiding-input-in-automatic-reports-from-jupyter-notebooks)
