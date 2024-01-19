@@ -23,3 +23,16 @@ Magist for its suitability.
 As second basic data-handling system after SQL, we were introduced to the Python
 [pandas](https://pandas.pydata.org/) library.
 Read about our challenges [here](02_pandas)!
+
+## Chapter 3: Data Cleaning and Storytelling
+*coming soon*
+
+## Chapter 4: A/B Testing
+*coming soon*
+
+## Chapter 5: Data Pipelines on the Cloud
+
+In [this](05_cloud_pipelines) two-week project, we learned and exercised ETL data-engineering skills, i.e. extracting, transforming and loading data into storage for comprehensive analysis. We scraped the web, used public APIs, transformed and augmented the data and stored it in an SQL database. The finished ETL process was then wrapped into a Google cloud function for automatic execution and I even went further to produce automatically updated reports on the data.
+
+One of the deliverables was a blog post which I wrote on [dev.to](https://dev.to/tvogel/from-scraping-in-the-cloud-to-streams-of-insights-oe9).
+
