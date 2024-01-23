@@ -15,7 +15,7 @@ Before going into story-telling, this post touches on the following topics - ple
 
 -----
 
-Or, read it like a fairy-tale:
+Or, just read it front-to-back:
 
 I am currently enrolled in a [WBS Coding School](https://www.wbscodingschool.com/) Data Science Boot Camp and the past two weeks, we were learning the data-engineering skills of ETL, i.e. extraction, transformation and loading of data into storage for comprehensive analysis.
 
@@ -87,6 +87,8 @@ def get_json(url, headers = None):
   requested from the web, the JSON is stored in the cache.
 
   :param url: the URL to retrieve from cache or web
+  :param headers: the HTTP request headers to pass
+    (for authorization)
   :return: tuple (json, scrape_index)
     where scrape_index refers to the scrape_list
   """
@@ -111,23 +113,23 @@ def get_json(url, headers = None):
     get_json.cache[url] = (json, scrape_index)
   return (json, scrape_index)
 ```
-The main difference apart from parsing JSON instead of HTML is a bit more handling of HTTP request result states such as failures like `404` via exceptions and the special `204 No Content` reply.
+The main difference apart from parsing JSON instead of HTML and passing HTTP request headers for authorization is handling of HTTP request result states such as failures like `404` via exceptions and the special `204 No Content` reply.
 
 ## Corner-cases on Wikipedia
 
-For the exercise, we extracted geographical location information and population numbers from https://en.wikipedia.org . As to be expected from unstructured data, and even though Wikipedia has some guidelines and tries to follow common patterns across the articles for different cities, the scraping function for processing Wikipedia had to be successively extended to handle certain corner-cases as I extended the list of cities.
+For the exercise, we extracted geographical location information and population numbers from https://en.wikipedia.org . As to be expected from unstructured data, and even though Wikipedia has some guidelines and tries to follow common patterns across the articles for different cities, the scraping function for processing Wikipedia had to be successively extended to handle certain corner-cases as I extended the list of cities, e.g. different labels or slightly different formatting of the population numbers.
 
 ## Missing elevation data on Wikidata
 
-In contrast, https://wikidata.org follows very strict rules on data-structure and Wikipedia links to the corresponding Wikidata pages. This makes it quite easy to scrape data because every type of information has unique identifiers. However, not many cities actually have elevation data or even peak elevation data, so my initial idea on elevation data failed which was to retrieve average and highest elevation in order to estimate hilliness which is in general relevant for E-scooter use.
+In contrast, https://wikidata.org follows strict rules on data-structure and Wikipedia links to the corresponding Wikidata pages. This makes it quite easy to scrape data because every type of information has unique identifiers. However, not many cities actually have peak elevation data, so my initial idea on elevation data failed which was to retrieve average and highest elevation in order to estimate hilliness which is in general relevant for E-scooter use.
 
 ## Extensible storage of facts
 
-The common approach to store information like population data would be to make it a column in the `city` database table. In order to allow tracking change of that over time, one could in contrast employ a separate table which stores the time of the scrape, population and other facts in multiple columns linked to the respective city such that a time-series of such information may evolve.
+The common approach to store information like population data would be to make it a column in the `city` database table. In order to allow tracking change of facts over time, one could in contrast employ a separate table which stores the time of the scrape, population and other facts in multiple columns linked to the respective city such that a time-series of such information may evolve.
 
 However, I wanted to try an approach that allows you to later on add new types of facts without changing the database table schema. Even though, some consider it an [anti-pattern](https://cedanet.com.au/antipatterns/eav.php), I used the [entity-attribute-value model](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model) to store the population data. This allows to later on add a new type of information (e.g. GDP per capita) to the `measure` table and then just store the new information in a `fact` table.
 
-As a counter-argument to the bashing this as an anti-pattern: Each time, you do an evaluation of your facts based on a current set of measures, it is quite easy to write a [common table expression](https://dev.mysql.com/doc/refman/8.0/en/with.html) that transforms your `fact` table into a classical table with individual columns for each of your measures just as you had designed it otherwise but without having to update the database schema each time you add a new measure. You just need to update your evaluation code.
+As a counter-argument to bashing this as an anti-pattern: Each time, you do an evaluation of your facts based on a current set of measures, it is quite easy to write a [common table expression](https://dev.mysql.com/doc/refman/8.0/en/with.html) that transforms your `fact` table into a classical table with individual columns for each of your measures just as you had designed it otherwise but without having to update the database schema each time you add a new measure. You just need to update your evaluation code.
 
 As an example how to assemble the `fact` data into a classical table, see this and the [SQL schema](#sql_schema) for reference:
 ```sql
@@ -162,7 +164,7 @@ FROM city_facts
 ORDER BY population DESC
 ;
 ```
-Here `city_facts` is a classical table-representation of the latest known facts. The `population_meta` is a JSON-column for case-dependent meta-data about that fact (census-date of reference in the case of population data). The `city_facts` can then be queried to give a result like this:
+Here `city_facts` is a classical table-representation of the latest known facts. The `population_meta` is a JSON-column for case-dependent meta-data about that fact (census-date of reference in the example of population data). The `city_facts` can then be queried to give a result like this:
 
 |city          |population|census_date|
 |--------------|----------|-----------|
@@ -192,9 +194,9 @@ Fortunately, using the [timezonefinder](https://timezonefinder.readthedocs.io/en
 
 Because airports tend to be far out of the city center where E-scooter business is going on, I assumed that commuting to the airport would be done by car, cab or public transport and the effect on E-scooter use would happen with a time-shift w.r.t. the arrival and departure times of flights. These time-shifts would depend on estimated quantities like how early people tend to arrive at the airport ahead of flights and how long it takes them to pick up baggage, clear immigration and walk out of the building but also the commuting time to and from the airport. To estimate this, I used an average city travel speed and the distance between airport and city center which I calculated using the [GeoPy ellipsoidal distance](https://geopy.readthedocs.io/en/stable/#module-geopy.distance) calculation module.
 
-Also, some cities have multiple airports in their vicinity and some airports had multiple cities in their vicinity which makes the calculations necessary for each pair and then to accumulate the results.
+Also, some cities have multiple airports in their vicinity and some airports have multiple cities in their vicinity which makes the calculations necessary for each pair and then to accumulate the results.
 
-Again, I was too demanding for poor [seaborn](https://seaborn.pydata.org/)'s convenient but opinionated "figure-level" API that I had to counter-act a bit to get back well-formatted x-axis ticks on all and not only the bottom sub-figures because, you know, when there are lots of figures, you won't see the bottom row and some x-axis visible is quite helpful, really.
+Again, I was too demanding for poor [seaborn](https://seaborn.pydata.org/)'s convenient but opinionated "figure-level" API that I had to counter-act a bit to get back to well-formatted x-axis ticks on all and not only the bottom sub-figures because, you know, when there are lots of figures, you won't see the bottom row and some x-axis visible is quite helpful, really.
 
 Sorry, for the tiny bit of ranting but this is what the results look like:
 
@@ -202,13 +204,13 @@ Sorry, for the tiny bit of ranting but this is what the results look like:
 
 I like that you can easily see that E-scooter use for departures of course is expected to happen earlier than for arrivals in general and how different the distribution is for the cities of Tübingen and Stuttgart which are both served by Stuttgart airport but have different commute times. The individual shape differences are caused by the different per-hour binning.
 
-The counts are expected users based on an average number of passengers per flight and a global fraction of E-scooter users per flight.
+The counts mean expected users based on an average number of passengers per flight and a global fraction of E-scooter users per flight.
 
 ## Gift ribbon for Google cloud-functions
 
 As I was happy with having all the extraction-transformation-load logic being refactored into self-containing units and a central orchestrating function, it was time to wrap this logic into a Google cloud-function container and have it run at periodic intervals.
 
-The main challenge was to come up with a comprehensive list of used Python packages in `requirements.txt`. As helpers, I found [pipreqs](https://github.com/bndr/pipreqs) and the [recommendation](https://stackoverflow.com/a/69081814/119725) to use it along with `pip-compile` from [pip-tools](https://github.com/jazzband/pip-tools). And, yes, that's a nice start but there are dynamic things that are not picked up by these tools like the actually used SQL driver in SQLAlchemy (`pymysql`) or the IPython kernel itself for running Jupyter notebooks (see below).
+The main challenge was to come up with a comprehensive list of utilized Python packages in `requirements.txt`. As helpers, I found [pipreqs](https://github.com/bndr/pipreqs) and the [recommendation](https://stackoverflow.com/a/69081814/119725) to use it along with `pip-compile` from [pip-tools](https://github.com/jazzband/pip-tools). And, yes, that's a nice start but there are dynamic things that are not picked up by these tools like the actually used SQL driver in SQLAlchemy (`pymysql`) or the IPython kernel itself for running Jupyter notebooks (see below).
 
 Anyway, to deserve it, you need to work a little. So, no complaints here!
 
@@ -279,7 +281,7 @@ One of the results of this project is the SQL database schema which ended up lik
 
 Another result is the reports that were automatically generated, an example of which you can see [here](https://htmlpreview.github.io/?https://github.com/tvogel/datascience-bootcamp/blob/main/05_cloud_pipelines/docs/gans_cities_display.html)!
 
-If you are reading this early enough, and I have not yet torn down the automation to save CPU and Google credits, you could see the actual page [here](https://storage.googleapis.com/wbscs_gans_cities_report/index.html)!
+If you are reading this early enough, and I have not yet torn down the automation to save CPU, API and Google credits, you could see the actual page [here](https://storage.googleapis.com/wbscs_gans_cities_report/index.html)!
 
 And of course, finally, all the nice code and development notebooks:
 - [gans_cities_scraping_and_api.ipynb](https://github.com/tvogel/datascience-bootcamp/blob/main/05_cloud_pipelines/docs/gans_cities_scraping_and_api.ipynb):<br/>
@@ -297,8 +299,7 @@ And of course, finally, all the nice code and development notebooks:
 
 ## I did not do it
 
-It would be cool to combine the flight data with the weather data. My idea would be to define [sigmoidal](https://en.wikipedia.org/wiki/Sigmoid_function) functions that define the relative likelihood that people use E-scooters under different weather parameters, e.g. below a certain temperature, when it rains, snows or if the wind blows to strongly. With those, I could attenuate the usage predictions that I derived from the flight data or just use them individually to predict the flight-independent scooter activity. The missing piece here would be the "perfect weather curve" for usage over the day.
-
+It would be cool to combine the flight data with the weather data. My idea would be to define [sigmoidal](https://en.wikipedia.org/wiki/Sigmoid_function) functions that define the relative likelihood that people use E-scooters under different weather parameters, e.g. below a certain temperature, when it rains, snows or if the wind blows too strongly. With those, I could attenuate the usage predictions that I derived from the flight data or just use them individually to predict the flight-independent scooter activity. The missing piece here would be the "perfect weather curve" for usage over the day.
 
 -----
 

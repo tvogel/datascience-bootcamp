@@ -610,6 +610,7 @@ def get_json(url, headers = None):
   If the URL is requested from the web, the JSON is stored in the cache.
 
   :param url: the URL to retrieve from cache or web
+  :param headers: the HTTP request headers to pass (for authorization)
   :return: (json, scrape_index) where scrape_index refers to the scrape_list
   """
   if use_caching:

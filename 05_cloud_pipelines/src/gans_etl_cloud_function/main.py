@@ -16,7 +16,7 @@ from flask import jsonify
 @functions_framework.http
 def run_etl_all(request):
   """
-  GCF: Run all Gans ETL functions
+  GCF: Run all Gans ETL functions and update report
 
   Entry point for Google Cloud Function
 
