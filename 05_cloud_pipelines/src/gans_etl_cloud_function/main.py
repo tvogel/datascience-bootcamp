@@ -25,6 +25,7 @@ def run_etl_all(request):
   """
   gans.connect_sql()
   summary = gans.etl_all()
+  gans.disconnect_sql()
 
   gans_update_report.make_report()
 

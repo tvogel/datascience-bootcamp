@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import pandas as pd
+import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
@@ -59,6 +60,11 @@ def connect_sql():
   url = engine.url.URL.create(**json.loads(os.getenv('sql_connection')))
   print(f'Connecting to {repr(url)}')
   connection = create_engine(url).connect()
+
+def disconnect_sql():
+  global connection
+  connection.close()
+  connection = None
 
 def reset_database():
     """
@@ -665,7 +671,7 @@ def get_weather(city=None, lat=None, lon=None):
   df['scrape_index'] = scrape_index
   for optional in ['rain.3h', 'snow.3h']:
     if not optional in df:
-      df[optional] = None
+      df[optional] = np.nan
   df.dt = pd.to_datetime(df.dt, unit='s')
   return df[['scrape_index', 'dt', 'main.temp', 'main.feels_like', 'wind.speed', 'wind.gust', 'rain.3h', 'snow.3h']].fillna(0)
 
