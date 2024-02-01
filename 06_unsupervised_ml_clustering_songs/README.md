@@ -63,13 +63,13 @@ And here, as the cherry on-top, I wrote a simple [random-walk](https://en.wikipe
 
 To appreciate that the harmonies in fact often blend quite nicely, set the Spotify App's crossfade feature to 12 seconds and pay attention to the transitions. These are the generated playlists:
 
-[<figure align="center"><img src="images/playlist_cover_images/cover_1.jpg" width=150/><figcaption>Feelgood Frequencies</figcaption></figure>](https://open.spotify.com/playlist/6uM33lzLVKtQUr7HVXE4El?si=85730df302864825)
-[<figure align="center"><img src="images/playlist_cover_images/cover_2.jpg" width=150/><figcaption>Groovy Pop Blend</figcaption></figure>](https://open.spotify.com/playlist/7blNRyyIQnRqj8Cwksis5C?si=02611e4e08ac4d13)
+[<img src="images/playlist_cover_images/cover_1.jpg" width=150/>](https://open.spotify.com/playlist/6uM33lzLVKtQUr7HVXE4El?si=85730df302864825)
+[<img src="images/playlist_cover_images/cover_2.jpg" width=150/>](https://open.spotify.com/playlist/7blNRyyIQnRqj8Cwksis5C?si=02611e4e08ac4d13)
 
-[<figure align="center"><img src="images/playlist_cover_images/cover_3.jpg" width=150/><figcaption>Study Focus</figcaption></figure>](https://open.spotify.com/playlist/2S9hpuyFWv0tbAiCoX9qmC?si=c1f24efc3b9740ea)
-[<figure align="center"><img src="images/playlist_cover_images/cover_4.jpg" width=150/><figcaption>Bars & Beats</figcaption></figure>](https://open.spotify.com/playlist/2UfeQYHIX57ycihZgX73Fg?si=7b83ebe6ed5a463e)
+[<img src="images/playlist_cover_images/cover_3.jpg" height=150/>](https://open.spotify.com/playlist/2S9hpuyFWv0tbAiCoX9qmC?si=c1f24efc3b9740ea)
+[<img src="images/playlist_cover_images/cover_4.jpg" width=150/>](https://open.spotify.com/playlist/2UfeQYHIX57ycihZgX73Fg?si=7b83ebe6ed5a463e)
 
-[<figure align="center"><img src="images/playlist_cover_images/cover_0.jpg" width=150/><figcaption>Thunderous Riffs</figcaption></figure>](https://open.spotify.com/playlist/6HQlDhCiT48pZND5b8X3Py?si=ad5c04891c754a64)
-[<figure align="center"><img src="images/playlist_cover_images/cover_5.jpg" width=150/><figcaption>Death Metal Essentials</figcaption></figure>](https://open.spotify.com/playlist/7CcAmzpv4KMjmrY3Ax43vq?si=25b8f0e3d0b24132)
+[<img src="images/playlist_cover_images/cover_0.jpg" width=150/>](https://open.spotify.com/playlist/6HQlDhCiT48pZND5b8X3Py?si=ad5c04891c754a64)
+[<img src="images/playlist_cover_images/cover_5.jpg" width=150/>](https://open.spotify.com/playlist/7CcAmzpv4KMjmrY3Ax43vq?si=25b8f0e3d0b24132)
 
 In particular the last playlist definitely has its problems such as outliers that donot fit at all and of course, the music and lyrics of the last two playlists are NSFW.
