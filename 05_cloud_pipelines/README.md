@@ -1,3 +1,5 @@
+# Chapter 5: Data pipelines in the cloud
+
 > This was published on [dev.to](https://dev.to/tvogel/from-scraping-in-the-cloud-to-streams-of-insights-oe9).
 
 Before going into story-telling, this post touches on the following topics - please, jump ahead:
