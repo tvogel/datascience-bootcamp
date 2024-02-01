@@ -36,8 +36,15 @@ In [this](05_cloud_pipelines) two-week project, we learned and exercised ETL dat
 
 One of the deliverables was a blog post which I wrote on [dev.to](https://dev.to/tvogel/from-scraping-in-the-cloud-to-streams-of-insights-oe9).
 
+[![AI generated: Sky with sun, clouds and airplanes, pipelines running through the clouds and a hand holding a drawing pencil](05_cloud_pipelines/images/blog.avif)](05_cloud_pipelines)
+
 ## Chapter 6: Unsupervised ML - Clustering Songs
 
-In [this](06_unsupervised_ml_clustering_songs/) one-week project we learned about high dimensional distances, scaling, PCA, k-Means, inertia elbow and silhouette score and the Spotify API. My special treat was to apply harmony theory to order songs by harmonic distance.
+<img src="06_unsupervised_ml_clustering_songs/images/moosic.png" align="right"/>
+
+In [this](06_unsupervised_ml_clustering_songs) one-week project we learned about high dimensional distances, scaling, PCA, k-Means, inertia elbow and silhouette score and the Spotify API.
+
+My special treat was to apply harmony theory to order songs by harmonic distance.
+<br style="clear:both"/>
 
 
