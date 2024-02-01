@@ -64,7 +64,7 @@ def key_aware_pairwise_distances(df, key_weight=1, mode_weight=1):
     key_weight=key_weight,
     mode_weight=mode_weight)
 
-def harmonic_scale(df, unwrap=True, drop_extra=True):
+def harmonic_scale(df, normalized=True, unwrap=True, drop_extra=True):
   '''
   Transform (key, mode) columns into (harmonic, mode) columns in which the new "harmonic"
   column has the property that euclidean distance means harmonic distance, i.e. C major and
@@ -73,6 +73,7 @@ def harmonic_scale(df, unwrap=True, drop_extra=True):
   optionally.
 
   :param df: original data-frame, must have `key` and `mode` columns
+  :param normalized: whether harmonic column is rescaled such the maximum distance is 1
   :param unwrap: whether to create duplicated rows transposed an octave up
   :param drop_extra: whether to drop extra columns major_key and key after transformation
   :return: new data-frame
@@ -80,7 +81,7 @@ def harmonic_scale(df, unwrap=True, drop_extra=True):
   df = (
     df
     .assign(major_key=lambda x: (x.key + (1-x['mode']) * 3)%12)
-    .assign(harmonic=lambda x: x.apply(lambda r: inv_fifth_table[r.major_key], axis=1))
+    .assign(harmonic=lambda x: x.apply(lambda r: inv_fifth_table[int(r.major_key)], axis=1))
   )
   if unwrap:
     df = pd.concat(
@@ -90,6 +91,8 @@ def harmonic_scale(df, unwrap=True, drop_extra=True):
         for shift in range(0,2)
       ]
     )
+  if normalized:
+    df = df.assign(harmonic=lambda x:x.harmonic / 6)
   if drop_extra:
     df = df.drop(['major_key', 'key'], axis=1)
   return df
