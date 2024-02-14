@@ -55,7 +55,7 @@ for feature, meta in features.items():
   query[feature] = [option[1]]
 
 import pickle
-with open('../data/mushrooms/classifier.pickle', 'rb') as file:
+with open('classifier.pickle', 'rb') as file:
   classifier = pickle.load(file)
 
 color = f'color:{"red" if classifier.predict(query)[0] else "green"}'
