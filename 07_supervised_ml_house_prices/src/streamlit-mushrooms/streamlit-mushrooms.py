@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import os
+import sklearn
+
+sklearn.set_config(transform_output='pandas')
+
 
 st.title('Mushroom classification')
 
@@ -59,10 +63,10 @@ with open(os.path.join(os.path.dirname(__file__), 'classifier.pickle'), 'rb') as
   import pickle
   classifier = pickle.load(file)
 
-prediction = classifier.predict(query)
+prediction = classifier.predict(query)[0]
 prediction_proba = classifier.estimator.predict_proba(query)[0, 1]
 
-color = f'color:{"red" if classifier.predict(query)[0] else "green"}'
+color = f'color:{"red" if prediction else "green"}'
 
 st.markdown(f"""
 # Prediction
