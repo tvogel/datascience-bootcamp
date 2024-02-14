@@ -55,8 +55,11 @@ for feature, meta in features.items():
   query[feature] = [option[1]]
 
 import pickle
-with open('classifier.pickle', 'rb') as file:
+with open('./classifier.pickle', 'rb') as file:
   classifier = pickle.load(file)
+
+prediction = classifier.predict(query)
+prediction_proba = classifier.estimator.predict_proba(query)[0, 1]
 
 color = f'color:{"red" if classifier.predict(query)[0] else "green"}'
 
@@ -68,14 +71,14 @@ Based on the features selected, the mushroom is predicted to be
     text-align:center;
     text-transform:uppercase;
     {color}"
->{'poisonous' if classifier.predict(query)[0] else 'edible'}</div>
+>{'poisonous' if prediction else 'edible'}</div>
 
 The probability of the mushroom being poisonous is
 <div style="text-align:center">
-{classifier.estimator.predict_proba(query)[0, 1]:.2%}
+{prediction_proba:.2%}
 </div>
 which is <span style="{color}">
-{'below' if classifier.estimator.predict_proba(query)[0, 1] < classifier.threshold_ else 'above'}
+{'below' if prediction_proba < classifier.threshold_ else 'above'}
 </span>
 the "safe" threshold of
 <div style="text-align:center">
@@ -84,4 +87,3 @@ the "safe" threshold of
 used by the classifier.
 """,
   unsafe_allow_html=True)
-
