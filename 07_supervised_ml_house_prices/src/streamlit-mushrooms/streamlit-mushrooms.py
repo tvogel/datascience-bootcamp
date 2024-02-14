@@ -37,7 +37,7 @@ features = {
   },
   'bruises': {
     'name': 'Bruises?',
-    'options': [('no', 'f'), ('yes', 't')]
+    'options': [('no', False), ('yes', True)]
   },
   'stalk.color.above.ring': {
     'name': 'Stalk Color Above Ring',
