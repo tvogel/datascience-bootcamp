@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 st.title('Mushroom classification')
 
@@ -54,8 +55,8 @@ for feature, meta in features.items():
   option = st.selectbox(meta['name'], meta['options'], format_func=lambda x: x[0] , key=feature)
   query[feature] = [option[1]]
 
-import pickle
-with open('./classifier.pickle', 'rb') as file:
+with open(os.path.join(os.path.dirname(__file__), 'classifier.pickle'), 'rb') as file:
+  import pickle
   classifier = pickle.load(file)
 
 prediction = classifier.predict(query)
