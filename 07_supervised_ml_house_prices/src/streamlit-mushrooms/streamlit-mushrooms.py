@@ -59,7 +59,7 @@ for feature, meta in features.items():
   option = st.selectbox(meta['name'], meta['options'], format_func=lambda x: x[0] , key=feature)
   query[feature] = [option[1]]
 
-with open(os.path.join(os.path.dirname(__file__), 'classifier.pickle'), 'rb') as file:
+with open(os.path.join(os.path.dirname(__file__), '../../data/mushrooms/classifier.pickle'), 'rb') as file:
   import pickle
   classifier = pickle.load(file)
 
