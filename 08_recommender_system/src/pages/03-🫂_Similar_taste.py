@@ -1,4 +1,5 @@
 import streamlit as st
+import tmdb
 
 st.set_page_config(
   page_title="Similar taste",
@@ -94,9 +95,17 @@ if similar_uid is None:
   '__Sorry, no matching user found for you :cry:__'
 else:
   f'Yay, user {similar_uid} has a similar taste as you! :tada:'
-  recommendations = user_recommendations(similar_uid, number).iloc[1:].join(movies_df)
+
+  recommendations = (
+    user_recommendations(similar_uid, number).iloc[1:]
+    .rename(columns={'estimated_rating': 'rating_mean'})
+    .pipe(augment_recommendations)
+  )
+
   '# Your recommendations:'
-  movie_table(recommendations.rename(columns={'estimated_rating': 'rating_mean'}))
+
+  movie_roster(recommendations)
+  movie_table(recommendations)
 
 
-
+tmdb.footer()

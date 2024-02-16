@@ -1,4 +1,5 @@
 import streamlit as st
+import tmdb
 
 st.set_page_config(
   page_title="Because you watched this...",
@@ -19,8 +20,6 @@ import pandas as pd
 from display import *
 import re
 
-movies_df = load_movies()
-
 #search_term = st.text_input('Search your favorite movie:', 'The Big Lebowski')
 
 #search_term = re.sub(r'The', '', search_term).strip().lower()
@@ -33,12 +32,19 @@ movies_df = load_movies()
 #   .head(10)
 # )
 
+movies_df = load_movies()
+
 favorite_idx = st.selectbox('Search your favorite movie:', movies_df.index, format_func=lambda x: movies_df.loc[x].title)
 number = st.radio('How many recommendations do you want?', [10, 20, 50], horizontal=True)
 
-recommendations = item_recommendations(favorite_idx, number).iloc[1:].join(movies_df)
+recommendations = (
+  item_recommendations(favorite_idx, number).iloc[1:]
+  .pipe(augment_recommendations)
+)
 
 '# Your recommendations:'
+
+movie_roster(recommendations)
 movie_table(recommendations)
 
-
+tmdb.footer()

@@ -1,4 +1,13 @@
 import streamlit as st
+import recommenders
+import tmdb
+
+def augment_recommendations(recommendations):
+  return (
+    recommendations
+    .join(recommenders.load_movies())
+    .pipe(tmdb.get_all_movie_details)
+  )
 
 def movie_table(recommendations):
   if 'rating_mean' in recommendations.columns:
@@ -23,3 +32,6 @@ def movie_table(recommendations):
     .rename(columns={'nr': 'Rank', 'title': 'Movie Title'}),
     hide_index=True
   )
+
+def movie_roster(recommendations):
+  return st.markdown(''.join([ f'[![{r.title}]({r.poster_url})]({r.movie_url})' for r in recommendations.itertuples() if r.poster_url is not None]))

@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import tmdb
 
 st.set_page_config(
   page_title="WBSFLIX",
@@ -22,3 +23,5 @@ emulate the personalized touch of the store owner, _Pumbaa_&nbsp;:heart:.
 
 Brought to you by group 1: Matthias, Roberto, Sebastian, Tilman
 '''
+
+tmdb.footer()

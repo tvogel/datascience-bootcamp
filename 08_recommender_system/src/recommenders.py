@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 def pop_recommendations(n=10, max_quantile=1.0):
   '''
@@ -89,6 +90,7 @@ def user_recommendations(user_id, n):
       [['estimated_rating']]
   )
 
+@st.cache_resource
 def load_movies():
   '''
   Load the movies.csv file
@@ -113,6 +115,7 @@ def load_movies():
   )
   return movies_df.join(links_df)
 
+@st.cache_resource
 def load_ratings():
   '''
   Load the ratings.csv file

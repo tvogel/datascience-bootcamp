@@ -1,4 +1,5 @@
 import streamlit as st
+import tmdb
 
 st.set_page_config(
   page_title="Popular Movies",
@@ -31,18 +32,21 @@ Source: https://en.wikipedia.org/wiki/IMDb
 from recommenders import pop_recommendations, load_movies
 import pandas as pd
 from display import *
-
-movies_df = load_movies()
+import tmdb
 
 skip_quantile = st.slider('Skip percentile', 0, 100, 0)/100
 'Shift the slider to the right to skip the most often rated movies and find some hidden gems!'
 
 number = st.radio('How many recommendations do you want?', [10, 20, 50], horizontal=True)
 
-recommendations = pop_recommendations(number, 1-skip_quantile).join(movies_df)
+recommendations = (
+  pop_recommendations(number, 1-skip_quantile)
+  .pipe(augment_recommendations)
+)
 
 '# Your recommendations:'
 
+movie_roster(recommendations)
 movie_table(recommendations)
 
-
+tmdb.footer()
