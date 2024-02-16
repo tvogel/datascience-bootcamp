@@ -20,7 +20,14 @@ Introducing :red[WBSFLIX], an online DVD store in a small town near Berlin.
 We've developed a recommendation system to enhance the user experience and
 emulate the personalized touch of the store owner, _Pumbaa_&nbsp;:heart:.
 
+## Get your recommendations:
+'''
 
+st.page_link('pages/01-🌡️_Popular_Movies.py', icon='🌡️')
+st.page_link('pages/02-🔮_Because_you_watched_this....py', icon='🔮')
+st.page_link('pages/03-🫂_Similar_taste.py', icon='🫂')
+
+'''
 Brought to you by group 1: Matthias, Roberto, Sebastian, Tilman
 '''
 
