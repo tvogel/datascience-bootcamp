@@ -89,6 +89,45 @@ def user_recommendations(user_id, n):
       [['estimated_rating']]
   )
 
+def load_movies():
+  '''
+  Load the movies.csv file
+
+  The file is located in the data directory.
+  '''
+  import pandas as pd
+  import os
+  movies_df = pd.read_csv(
+    os.path.join(
+      os.path.dirname(__file__),
+      '../data/ml-latest-small/movies.csv'
+    ),
+    index_col='movieId'
+  )
+  links_df = pd.read_csv(
+    os.path.join(
+      os.path.dirname(__file__),
+      '../data/ml-latest-small/links.csv'
+    ),
+    index_col='movieId'
+  )
+  return movies_df.join(links_df)
+
+def load_ratings():
+  '''
+  Load the ratings.csv file
+
+  The file is located in the data directory.
+  '''
+  import pandas as pd
+  import os
+  return pd.read_csv(
+    os.path.join(
+      os.path.dirname(__file__),
+      '../data/ml-latest-small/ratings.csv'
+    )
+  )
+
 def unpickle_data():
   '''
   Load pre-computed data from a pickle file
