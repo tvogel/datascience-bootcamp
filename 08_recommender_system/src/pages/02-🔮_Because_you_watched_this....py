@@ -8,12 +8,13 @@ st.set_page_config(
 
 st.title("🔮 Because you watched this...")
 
-'''
-- This function retrieves recommendations based on _item similarity_.
-- It calculates the scoring using _cosine_ similarity of user ratings between the reference item and all other items.
-- The scores are attenuated by a _sigmoid_ function to underweight scores that are based on less than 10 common raters.
-- The scores are _pre-computed_ and read from a pickle file.
-'''
+with st.expander('Description'):
+  '''
+  - This function retrieves recommendations based on _item similarity_.
+  - It calculates the scoring using _cosine_ similarity of user ratings between the reference item and all other items.
+  - The scores are attenuated by a _sigmoid_ function to underweight scores that are based on less than 10 common raters.
+  - The scores are _pre-computed_ and read from a pickle file.
+  '''
 
 from recommenders import item_recommendations, load_movies
 import pandas as pd
@@ -34,7 +35,8 @@ import re
 
 movies_df = load_movies()
 
-favorite_idx = st.selectbox('Search your favorite movie:', movies_df.index, format_func=lambda x: movies_df.loc[x].title)
+favorite_idx = movie_selectbox('Search your favorite movie:')
+
 number = st.radio('How many recommendations do you want?', [10, 20, 50], horizontal=True)
 
 recommendations = (

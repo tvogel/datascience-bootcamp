@@ -8,12 +8,13 @@ st.set_page_config(
 
 st.title("🫂 Similar taste")
 
-'''
-- This function retrieves recommendations based on _user similarity_.
-- It uses the [surprise](https://surprise.readthedocs.io/en/stable/index.html)  library's _KNNWithZScore_ algorithm to calculate the scoring.
-- The scores are _pre-computed_ and read from a pickle file.
-- Groups of recommendations of the same score are _shuffled_ to prevent the same recommendations from being returned every time.
-'''
+with st.expander('Description'):
+  '''
+  - This function retrieves recommendations based on _user similarity_.
+  - It uses the [surprise](https://surprise.readthedocs.io/en/stable/index.html)  library's _KNNWithZScore_ algorithm to calculate the scoring.
+  - The scores are _pre-computed_ and read from a pickle file.
+  - Groups of recommendations of the same score are _shuffled_ to prevent the same recommendations from being returned every time.
+  '''
 
 from recommenders import user_recommendations, load_movies, load_ratings
 import pandas as pd
@@ -41,13 +42,20 @@ Pick your top three movies to find someone with similar taste:
 favorite_idx = []
 
 for i in range(3):
-  favorite_idx.append( st.selectbox(f'Pick your movie {i+1}', movies_df.index, format_func=lambda x: movies_df.loc[x].title) )
-
+  favorite_idx.append(
+    movie_selectbox(
+      f'Pick your movie {i+1}',
+      key=f'favorite-{i}'
+    )
+  )
 '''
 Pick one movie that you did not like at all:
 '''
 
-anti_idx = st.selectbox(f'Pick your anti-movie', movies_df.index, format_func=lambda x: movies_df.loc[x].title)
+anti_idx = movie_selectbox(
+    f'Pick your anti-movie',
+    key='anti'
+  )
 
 number = st.radio('How many recommendations do you want?', [10, 20, 50], horizontal=True)
 

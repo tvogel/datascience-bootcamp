@@ -8,26 +8,29 @@ st.set_page_config(
 
 st.title("🌡️ Popular Movies")
 
-'''
-- Introducing Our Popularity Recommender
-- We utilized the widely recognized weighted average rating formula from IMDb
+with st.expander('Description'):
+  '''
+  - Introducing Our Popularity Recommender
+  - We utilized the widely recognized weighted average rating formula from IMDb
 
-The score is calculated as
+  The score is calculated as
 
-$$
-W = \\frac{v\cdot R + m\cdot C}{v + m}
-$$
+  $$
+  W = \\frac{v\cdot R + m\cdot C}{v + m}
+  $$
 
-where
+  where
 
-- R is the average rating of the movie
-- C is the mean rating across all movies
-- v is the number of votes for the movie
-- m is the minimum votes required to be listed,\\
-  in our case: the 90th percentile of the number of votes.
+  - R is the average rating of the movie
+  - C is the mean rating across all movies
+  - v is the number of votes for the movie
+  - m is the minimum votes required to be listed,\\
+    in our case: the 90th percentile of the number of votes.
 
-Source: https://en.wikipedia.org/wiki/IMDb
-'''
+  Source: https://en.wikipedia.org/wiki/IMDb
+
+  '''
+
 
 from recommenders import pop_recommendations, load_movies
 import pandas as pd

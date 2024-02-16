@@ -2,6 +2,23 @@ import streamlit as st
 import recommenders
 import tmdb
 
+def movie_selectbox(label, key=None):
+  try:
+    movies_df = movie_selectbox.movies_df
+    movie_titles = movie_selectbox.titles
+  except AttributeError:
+    movie_selectbox.movies_df = movies_df = recommenders.load_movies()
+    movie_selectbox.titles = movie_titles = movies_df.title.to_list()
+
+  index = st.selectbox(
+    label,
+    range(len(movie_titles)),
+    key=key,
+    index=None,
+    format_func=lambda x: movie_titles[x]
+  )
+  return movies_df.index[index] if index is not None else None
+
 def augment_recommendations(recommendations):
   return (
     recommendations
