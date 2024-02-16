@@ -1,11 +1,16 @@
 import streamlit as st
+import os
 
 st.set_page_config(
   page_title="WBSFLIX",
   page_icon="🎬",
 )
 
-st.title(":red[WBSFLIX] Movie Recommendations&nbsp;:popcorn:")
+st.image(os.path.join(os.path.dirname(__file__), '../images/WBSFLIX_LOGO_GROUP_1.png'))
+
+st.title("Movie Recommendations&nbsp;:popcorn:")
+
+
 
 '''
 __Building Personalized Movie Recommendations with Streamlit__
