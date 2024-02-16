@@ -74,6 +74,8 @@ python-dateutil==2.8.2
     # via
     #   pandas
     #   streamlit
+python-dotenv==1.0.1
+    # via -r requirements.in
 pytz==2024.1
     # via pandas
 referencing==0.33.0
@@ -81,7 +83,9 @@ referencing==0.33.0
     #   jsonschema
     #   jsonschema-specifications
 requests==2.31.0
-    # via streamlit
+    # via
+    #   -r requirements.in
+    #   streamlit
 rich==13.7.0
     # via streamlit
 rpds-py==0.18.0
