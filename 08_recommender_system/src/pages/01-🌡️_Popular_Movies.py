@@ -8,10 +8,8 @@ st.set_page_config(
 st.title("🌡️ Popular Movies")
 
 '''
-Our first approach is a popularity-based recommender system.
-We analyzed the ratings dataset to identify the most popular
-movies among our users. These recommendations are displayed
-prominently on the first row of the :red[WBSFLIX] site.
+- Introducing Our Popularity Recommender
+- We utilized the widely recognized weighted average rating formula from IMDb
 
 The score is calculated as
 
@@ -27,6 +25,7 @@ where
 - m is the minimum votes required to be listed,\\
   in our case: the 90th percentile of the number of votes.
 
+Source: https://en.wikipedia.org/wiki/IMDb
 '''
 
 from recommenders import pop_recommendations, load_movies
