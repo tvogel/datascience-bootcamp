@@ -7,6 +7,13 @@ st.set_page_config(
 
 st.title("🫂 Similar taste")
 
+'''
+- This function retrieves recommendations based on _user similarity_.
+- It uses the [surprise](https://surprise.readthedocs.io/en/stable/index.html)  library's _KNNWithZScore_ algorithm to calculate the scoring.
+- The scores are _pre-computed_ and read from a pickle file.
+- Groups of recommendations of the same score are _shuffled_ to prevent the same recommendations from being returned every time.
+'''
+
 from recommenders import user_recommendations, load_movies, load_ratings
 import pandas as pd
 from display import *
