@@ -47,4 +47,16 @@ In [this](06_unsupervised_ml_clustering_songs) one-week project we learned about
 My special treat was to apply harmony theory to order songs by harmonic distance.
 <br style="clear:both"/>
 
+## Chapter 7: Supervised ML - Housing Prices and Mushroom classification
 
+_Coming soon_
+
+## Chapter 8: Recommender systems
+
+<img style="display:block; margin-left:auto; margin-right:auto;" alt="WBSFLIX logo" src="08_recommender_system/images/WBSFLIX_LOGO_GROUP_1.png"/>
+
+This week took us to learn about different ways to extract movie recommendations for the fictitious WBSFLIX online DVD rental shop from previous movie ratings. Read all about it [here](08_recommender_system) and check out the recommendation app!
+
+## Chapter 9: Advanced SQL
+
+_Coming soon_
