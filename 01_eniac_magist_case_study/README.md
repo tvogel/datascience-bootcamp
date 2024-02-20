@@ -10,7 +10,7 @@ For this, Eniac has access to 25 months worth of operations data from Magist, in
 I worked on this group project together with:
 
 - [Adrian Mihail](https://github.com/adrianmihail)
-- Helene Rebelo 
+- [Helene Rebelo](https://github.com/HeleneRebelo)
 - [Petri Tiirikainen](https://github.com/PetriTiirikainen)
 
 Our trainers:
@@ -36,7 +36,7 @@ I chose to display this using a scatter plot of all sellers with the x-axis sayi
 
 [![scatter plot of all sellers with the x-axis saying what fraction of products was sold in tech categories and the y-axis depicting the average monthly sales](images/Sellers_%20Monthly%20Sales%20and%20Tech%20Affinity.png)](images/Sellers_%20Monthly%20Sales%20and%20Tech%20Affinity.pdf)
 
-This showed that even the most-selling seller with tech focus with monthly sales of 9.2K€ sold orders of magnitudes less than Eniac which sells 1.17 M€ in the scenario. There were only 7 out of 3095 sellers that were focussing on tech and had monthly sales above 2.5K€. 
+This showed that even the most-selling seller with tech focus with monthly sales of 9.2K€ sold orders of magnitudes less than Eniac which sells 1.17 M€ in the scenario. There were only 7 out of 3095 sellers that were focussing on tech and had monthly sales above 2.5K€.
 
 So, the conclusion was that even though, there are a few higher-volume sellers among Magist's sellers, there is really no precedent for Eniac and choice of Magist as a fulfillment partner would pioneering and needed special care by executive management.
 
