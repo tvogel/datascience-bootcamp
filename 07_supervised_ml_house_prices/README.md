@@ -105,7 +105,7 @@ Now that we were in full speed, a lot of more was covered:
   - support-vector-classification
   - random forests
 - scaling / normalization: some models, in contrast to decision-trees, are sensitive to the relative values of features, so normalization is crucial
-- confusion matrix: better evaluation of performance showing true-negative, true-positive, false-negative and false-positive predictions
+- confusion matrix: better evaluation of performance showing true-negative, true-positive, false-negative and false-positive predictions\
   ![confusion matrix display](images/confusion-matrix.png)
 - ordinal encoding: how to transform categorical data that has an order (e.g. levels of building quality) into numbers
 
