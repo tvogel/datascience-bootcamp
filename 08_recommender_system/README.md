@@ -19,5 +19,5 @@ To wrap up, we saved the resulting recommendation data-sets as Python pickles (c
 
 which was also used for our group presentation. It also shows movie posters and links to pages from [tmdb](https://www.themoviedb.org/). __Go, check it out and see if it can produce some nice recommendations for you!__
 
-Shout out to my team-mates Matthias, [Roberto Cavotti](https://www.linkedin.com/in/roberto-cavotti/) and [Sebastian Foth](https://www.linkedin.com/in/sebastianfoth/) for our joint efforts!
+Shout out to my team-mates [Matthias Nickola](https://www.linkedin.com/in/matthiasnickola/), [Roberto Cavotti](https://www.linkedin.com/in/roberto-cavotti/) and [Sebastian Foth](https://www.linkedin.com/in/sebastianfoth/) for our joint efforts!
 
