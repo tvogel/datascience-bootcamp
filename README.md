@@ -50,6 +50,7 @@ My special treat was to apply harmony theory to order songs by harmonic distance
 ## Chapter 7: Supervised ML - Housing Prices and Mushroom classification
 
 ![confusion matrix display](07_supervised_ml_house_prices/images/confusion-matrix.png)
+
 Two weeks were devoted and crammed with insights into
 [supervised machine-learning](07_supervised_ml_house_prices). We learned about
 
