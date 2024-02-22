@@ -49,7 +49,21 @@ My special treat was to apply harmony theory to order songs by harmonic distance
 
 ## Chapter 7: Supervised ML - Housing Prices and Mushroom classification
 
-_Coming soon_
+![confusion matrix display](07_supervised_ml_house_prices/images/confusion-matrix.png)
+Two weeks were devoted and crammed with insights into
+[supervised machine-learning](07_supervised_ml_house_prices). We learned about
+
+- training data preparation
+- classification, regression
+- prediction metrics
+- decision trees, gradient boosted random forests
+- linear and logistic regression
+- support vector classifiers
+- one-hot and ordinal encoding
+- parameter optimization and cross-validation
+
+and even _pickling data_ and creating classifiers as web-apps with [streamlit](https://streamlit.io/)! Our model data-sets were selling prices of houses :european_castle: and poisonous vs. edible mushrooms :mushroom:.
+
 
 ## Chapter 8: Recommender systems
 
