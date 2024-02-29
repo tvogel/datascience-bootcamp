@@ -79,6 +79,7 @@ I was interested in how much the performance depends on the actual split between
 
 ![dependence of accuracy on split](images/dependence-accuracy-split.png)
 
+For this, I repeated the training for each ratio many times and recorded the distribution of accuracies. You can see that if the test size is too small, the error of the accurracy gets so big that it is difficult to accurately quantify the quality of the model. And of course if the test size gets too large, the model is lacking important information for training. The sweet spot here was between 20-25%, even though 40% looks good in this graph, too, thanks to the reduced error bar.
 
 ### Step 3: Handling categorical data
 
@@ -97,7 +98,7 @@ __Surprisingly__, the additional nominal features did not contribute to the pred
 
 ### Next steps: More models, confusion matrix, ordinal encoding
 
-Now that we were in full speed, a lot of more was covered:
+Now that we were in full speed, a lot more was covered:
 
 - more models:
   - k-nearest-neighbors
