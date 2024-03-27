@@ -25,7 +25,8 @@ As second basic data-handling system after SQL, we were introduced to the Python
 Read about our challenges [here](02_pandas)!
 
 ## Chapter 3: Data Cleaning and Storytelling
-*coming soon*
+
+In this quite intense two-weeks chapter, we were diving deep into a sales database with severe problems and learned how to still extract useful conclusions from it. Take a [look](03_eniac_data_cleaning)!
 
 ## Chapter 4: A/B Testing
 *coming soon*
