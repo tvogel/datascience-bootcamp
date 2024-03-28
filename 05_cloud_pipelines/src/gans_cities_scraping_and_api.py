@@ -63,6 +63,7 @@ def connect_sql():
 
 def disconnect_sql():
   global connection
+  connection.commit()
   connection.close()
   connection = None
 
@@ -1094,7 +1095,12 @@ def etl_all():
   summary = {}
   summary['cities'] = etl_cities()
   summary['weather'] = etl_weather()
-  summary['airports'] = etl_airports()
-  summary['flights'] = etl_flights()
+  #summary['airports'] = etl_airports()
+  #summary['flights'] = etl_flights()
   print('Done.')
   return summary
+
+if __name__ == "__main__":
+  connect_sql()
+  print(etl_all())
+  disconnect_sql()

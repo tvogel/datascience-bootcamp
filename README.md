@@ -29,7 +29,12 @@ Read about our challenges [here](02_pandas)!
 In this quite intense two-weeks chapter, we were diving deep into a sales database with severe problems and learned how to still extract useful conclusions from it. Take a [look](03_eniac_data_cleaning)!
 
 ## Chapter 4: A/B Testing
-*coming soon*
+
+<img src="04_ab_testing/images/heatmap_small.png" align="right"/>
+
+In [this one-week chapter](04_ab_testing), we learned a lot about the foundations of inferential statistics and deciding whether the outcome of UI experiments have statistical significance. Because the methods are applicable in a much larger class of problems, I found the material very helpful.
+
+<br style="clear:both"/>
 
 ## Chapter 5: Data Pipelines on the Cloud
 
