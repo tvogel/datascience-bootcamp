@@ -78,6 +78,11 @@ and even _pickling data_ and creating classifiers as web-apps with [streamlit](h
 
 This week took us to learn about different ways to extract movie recommendations for the fictitious WBSFLIX online DVD rental shop from previous movie ratings. Read all about it [here](08_recommender_system) and check out the recommendation app!
 
-## Chapter 9: Advanced SQL
+## Chapter 9: Advanced SQL 🗄️
 
-_Coming soon_
+I actually do like SQL a lot, so this [one-week reinforcement](09_advanced_sql) on advances SQL topics was actually good fun!
+
+## Final project: Wave-energy converter power optimization with deep learning 🌊
+
+_coming soon_
+
